@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="page_header">
+    <h1>Class Quality poll</h1>
+    <h2>{{ data.Question }}</h2>
+    <form action="voted">
+        {% for e in data.fields %}
+              <input type="radio" name="field" value="{{ e }}">  {{ e }}<br>
+        {% endfor %}
+        <input type="submit" value="Vote" />
+    </form>
+</div>
+{% endblock %}
