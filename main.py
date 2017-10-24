@@ -1,5 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
+import os
+
+
+filename = 'results.csv'
 
 
 poll_data = {'Question':'How difficult is this class?',
@@ -22,6 +26,16 @@ def user(name):
 @app.route('/polls')
 def polls():
     return render_template('polls.html',data=poll_data)
+
+
+@app.route('/voted')
+def voted():
+        vote = request.args.get('field')
+
+        res = open(filename,'a')
+        res.write(vote + ',')
+        res.close()
+        return render_template('thankyou.html')
 
 
 if __name__ == "__main__":
