@@ -65,6 +65,11 @@ mkdir templates
 
 ### Bootstrap
 
+- install bootstrap
+```bash
+pip install flask-bootstrap
+```
+
 ### Using a base template
 
 ### Extending Navigation Bar
