@@ -95,3 +95,10 @@ pip install flask-bootstrap
 ### Displaying Results using bar charts
 
 ### Rendering Markdown
+
+# Aknowledgements
+
+- [Miguel Grinebrg-Flask Web DEvelopment Book](https://coddyschool.com/upload/Flask_Web_Development_Developing.pdf)
+- [Lalith Polepeddi](https://www.lynda.com/Flask-tutorials/course-overview/521231/529872-4.html?srchtrk=index%3a1%0alinktypeid%3a2%0aq%3aflask%0apage%3a1%0as%3arelevance%0asa%3atrue%0aproducttypeid%3a2)
+- [Gabor Szabo](https://code-maven.com/a-polling-station-with-flask)
+- [Hans Petter Langtangen and Anders E. Johansen](http://hplgit.github.io/web4sciapps/doc/pub/._web4sa_flask013.html)
