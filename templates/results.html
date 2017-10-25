@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block page_content %}
+<div class="page_header">
+    <h1>Results for:</h1>
+    <h2>{{ question }}</h2>
+    <h3>Counts</h3>
+    
+    <ul>
+    {% for name,vote in names_votes %}
+        <li>{{ name }} : {{ vote }}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}

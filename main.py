@@ -17,7 +17,7 @@ bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index():
-     return render_template('index.html')
+    return render_template('index.html')
 
 
 @app.route('/user/<name>')
@@ -32,12 +32,19 @@ def polls():
 
 @app.route('/voted')
 def voted():
-        vote = request.args.get('field')
+    vote = request.args.get('field')
 
-        res = open(filename,'a')
-        res.write(vote + ',')
-        res.close()
-        return render_template('thankyou.html')
+    res = open(filename,'a')
+    res.write(vote + ',')
+    res.close()
+    return render_template('thankyou.html')
+
+
+@app.route('/results')
+def results():
+    names, votes =  da.compute()
+    
+    return render_template('results.html',question=poll_data['Question'],names_votes=zip(names,votes))
 
 
 if __name__ == "__main__":
