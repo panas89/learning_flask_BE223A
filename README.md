@@ -93,3 +93,5 @@ pip install flask-bootstrap
 ### Displaying Results
 
 ### Displaying Results using bar charts
+
+### Rendering Markdown

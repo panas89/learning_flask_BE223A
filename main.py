@@ -1,11 +1,16 @@
 from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
+from flask_misaka import Misaka
 import os
 import pandas as pd
 import dataAnalysis as da
 
 
 filename = 'results.csv'
+
+content = ""
+with open("readme.md", "r") as f:
+     content = f.read()
 
 
 poll_data = {'Question':'How difficult is this class?',
@@ -14,6 +19,7 @@ poll_data = {'Question':'How difficult is this class?',
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
+Misaka(app)
 
 @app.route('/')
 def index():
@@ -43,8 +49,13 @@ def voted():
 @app.route('/results')
 def results():
     names, votes =  da.compute()
-    
-    return render_template('results.html',question=poll_data['Question'],names_votes=zip(names,votes))
+    html_text = da.bar_plot(names=names, votes=votes)
+    return render_template('results.html',question=poll_data['Question'],names_votes=zip(names,votes),plot=html_text)
+
+
+@app.route('/home')
+def home():
+    return render_template('home.html',text=content)
 
 
 if __name__ == "__main__":
